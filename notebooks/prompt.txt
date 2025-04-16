@@ -1,0 +1,16 @@
+Example 1 of docstring and python function pair:
+Python function: "def determine_observer_insert_points(self, model):\n        \n        \n        raise NotImplementedError(\"No observers are inserted in the PerChannelDetector.\")"
+Docstring:  "r\"\"\"\n        There is no observers inserted for the PerChannelDetector"
+
+Example 2 of docstring and python function pair:
+Python function: "def download_as_bytearray(self, buf: bytearray = None) -> bytes:\n        \n\n        \n        if buf is None:\n            buf = bytearray()\n        if is_local_file(self.file_path):\n            buf.extend(Path(self.file_path).read_bytes())\n        else:\n            buf.extend(self.get_bot().request.retrieve(self._get_encoded_url()))\n        return buf"
+Docstring: "Download this file and return it as a bytearray.\n\n        Args:\n            buf (:obj:`bytearray`, optional): Extend the given bytearray with the downloaded data.\n\n        Returns:\n            :obj:`bytearray`: The same object as :attr:`buf` if it was specified. Otherwise a newly\n            allocated :obj:`bytearray`."
+
+Example 3 of docstring and python function pair:
+Python function: "def reverse_forbidden_text(text, mask, pattern, flags=0, forbid_wrapper=True):\n    \n     \n    \n    if isinstance(pattern, list): pattern = '|'.join(pattern)\n    pattern_compile = re.compile(pattern, flags)\n    for res in pattern_compile.finditer(text):\n        if not forbid_wrapper:\n            mask[res.span()[0]:res.span()[1]] = TRANSFORM\n        else:\n            mask[res.regs[0][0]: res.regs[1][0]] = PRESERVE   # '\\\\begin{abstract}'\n            mask[res.regs[1][0]: res.regs[1][1]] = TRANSFORM   # abstract\n            mask[res.regs[1][1]: res.regs[0][1]] = PRESERVE   # abstract\n    return text, mask" 
+Docstring: "Move area out of preserve area (make text editable for GPT)\n    count the number of the braces so as to catch compelete text area. \n    e.g.\n    \\begin{abstract} blablablablablabla. \\end{abstract}"
+
+Generate docstring for this python function: 
+def test_timewindows(database):\n      \n    # clear the database before running this test\n    os.system('./slips.py -c slips.conf -cc')\n    profileid = 'profile_8.8.8.8'\n    # add a profile\n    database.addProfile(profileid,'00:00','1')\n    # add a tw to that profile (first tw)\n    database.addNewTW(profileid, 0.0)\n    # add  a new tw (last tw)\n    assert database.getFirstTWforProfile(profileid) == [('timewindow1', 0.0)]
+
+return the docstring only
